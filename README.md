@@ -1,5 +1,5 @@
 # quadratic
 
-Python program that solves quadratic equations and gives the answers in terms of radicals.
+Python program that solves quadratic equations and gives the answers as fully simplified algebraic expressions.
 
-The program gives the solutions as fully simplified algebraic answers rather than decimals. Square roots are represented by radical signs and fractions are simplified and represented in lowest terms. Fractions are combined if possible. The program also deals with complex solutions and represents √-1 as i.     
+The program gives the solutions as fully simplified algebraic expressions rather than decimals. Square roots are simplified and represented by radical signs and fractions are simplified and represented in lowest terms. Separate fractions are combined and simplified to lowest terms if needed. The program also deals with complex solutions and represents √-1 as i.     
