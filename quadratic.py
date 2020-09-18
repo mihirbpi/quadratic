@@ -79,8 +79,10 @@ def quadratic(a, b, c):
             print(str(num)+"/"+str(denom))
 
     # Else the solution has two parts -b / 2a and D / 2a
-    # D/2a is either added or subtracted from -b / 2a
+    # D / 2a is either added or subtracted from -b / 2a
     # The simplified -b / 2a will be called str1 and the simplified D / 2a will be called str2
+
+    # If D >= 0 then the quadratic has two real solutions
     elif(D >= 0):
         answer_plus = ""
         answer_minus = ""
@@ -214,7 +216,7 @@ def quadratic(a, b, c):
         print(answer_plus)
         print(answer_minus)
 
-    # If D < 0 the solutions are complex
+    # If D < 0 then the quadratic has two complex solutions that are complex conjugates
     # The steps are slightly different in this case
     else:
         answer_plus = ""
@@ -238,12 +240,12 @@ def quadratic(a, b, c):
             denom1 = math.floor(denom1 / gcd1)
             str1 = str(num1)+"/"+str(denom1)
 
-        # If length of the my_sqrt(-D) list is 1 then D was a perfect square and simplifies to an integer after taking the sqrt
+        # If length of the my_sqrt(-D) list is 1 then -D was a perfect square and simplifies to an integer after taking the sqrt
         if (len(my_sqrt(-D)) == 1):
             num2 = my_sqrt(-D)[0]
             gcd2 = math.gcd(num2, denom2)
 
-            # If the numerator my_sqrt(-D)[0] is divisible by the denominator 2a divide them and give the answer as an integer
+            # If the numerator my_sqrt(-D)[0] is divisible by the denominator 2a divide them and give the answer as an integer times i
             if(num2 % denom2 == 0):
                 str2 = str(math.floor(num2 / denom2))+"i"
 
@@ -251,7 +253,7 @@ def quadratic(a, b, c):
             elif (gcd2 == 1):
                 str2 = str(num2)+"i"+"/"+str(denom2)
 
-            # If the gcd of numerator sqrt(D)[0] and the denominator 2a is not 1 divide both by the gcd and give the answer as a simplified fraction i*sqrt(-D) / 2a
+            # If the gcd of numerator sqrt(-D)[0] and the denominator 2a is not 1 divide both by the gcd and give the answer as a simplified fraction i*sqrt(-D) / 2a
             else:
                 num2 = math.floor(num2 / gcd2)
                 denom2 = math.floor(denom2 / gcd2)
