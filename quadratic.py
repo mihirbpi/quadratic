@@ -32,15 +32,15 @@ def my_sqrt(n):
 
             if(n % (i ** 2) == 0):
                 m = i ** 2
+                q = math.floor(n / m)
+                list_result = [get_int_square_root(m), q]
+                return list_result
                 # Find the maximum perfect square (m) that divides n
                 # n = m * q where q is some integer
                 # So q = n / m represented as an integer
                 # And sqrt(n) = sqrt(m) * √q
                 # The first element in the list is sqrt(m) which is an integer the second element is q which is under the sqrt
                 # The list represents sqrt(m) * √q
-        q = math.floor(n / m)
-        list_result = [get_int_square_root(m), q]
-        return list_result
 
 # Solves a quadratic equation with coefficients a,b, and c
 def quadratic(a, b, c):
@@ -293,6 +293,8 @@ def quadratic(a, b, c):
         print("Solutions to "+str(a)+"x^2 + "+str(b)+"x + "+str(c)+" = 0 are:")
         print(answer_plus)
         print(answer_minus)
+
+print(my_sqrt(280))
 
 a = int(input("a = "))
 b = int(input("b = "))
