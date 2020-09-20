@@ -294,8 +294,6 @@ def quadratic(a, b, c):
         print(answer_plus)
         print(answer_minus)
 
-print(my_sqrt(280))
-
 a = int(input("a = "))
 b = int(input("b = "))
 c = int(input("c = "))
