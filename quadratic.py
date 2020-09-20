@@ -6,9 +6,9 @@ def is_perfect_square(n):
     return math.sqrt(n) == math.floor(math.sqrt(n))
 
 # Returns the sqrt if the input is a perfect square
-def get_int_square_root(perfect_square):
-    # Return the sqrt as an integer (without the math.floor the answer would be a float)
-    return math.floor(math.sqrt(perfect_square))
+def get_int_square_root(square):
+    # Return the floor of the sqrt as an integer
+    return math.floor(math.sqrt(square))
 
 # Returns a list representing the simplified sqrt of a number n
 def my_sqrt(n):
@@ -23,27 +23,22 @@ def my_sqrt(n):
     # If n is not a perfect square the list has length 2 and its two elements represent the integral and sqrt parts
     # For example a list [5, 2] represents that sqrt(n) = 5√2
     else:
-        # To make this list first make a list of all perfect squares less than or equal to n that also divide n
-        # If m is the maximum perfect square in that list then n = m * q where q is some integer and q will have no perfect square factors
+        # If m is the maximum perfect square in that divides n then n = m * q where q is some integer and q will have no perfect square factors
         # This is because m is the maximum perfect_square that divides n
         # So sqrt(n) = sqrt(m) * sqrt(q) where sqrt(m) is an integer since m is a perfect square and q has no perfect square factors
-        list_squares = []
+        m = 0
 
-        for i in range(1, n+1):
+        for i in range(get_int_square_root(n), 0, -1):
 
-            if(n % i == 0 and is_perfect_square(i)):
-                # Add perfect squares that divide n to the list of perfect squares less than n that divide it as integers
-                div = math.floor(i)
-                list_squares.append(div)
-
-                # Extract the maximum perfect square (m) that divides n from this list
+            if(n % (i ** 2) == 0):
+                m = i ** 2
+                # Find the maximum perfect square (m) that divides n
                 # n = m * q where q is some integer
                 # So q = n / m represented as an integer
                 # And sqrt(n) = sqrt(m) * √q
                 # The first element in the list is sqrt(m) which is an integer the second element is q which is under the sqrt
                 # The list represents sqrt(m) * √q
-        m = max(list_squares)
-        q = math.floor(n / max(list_squares))
+        q = math.floor(n / m)
         list_result = [get_int_square_root(m), q]
         return list_result
 
