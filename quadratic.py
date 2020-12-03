@@ -1,7 +1,6 @@
 import math
 
 # Returns a boolean if an integer n is a perfect square or not
-# added comment to test
 def is_perfect_square(n):
     # If the sqrt(n) and the lowest integer at or below the sqrt(n) are the same then n is a perfect square
     return math.sqrt(n) == math.floor(math.sqrt(n))
